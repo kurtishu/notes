@@ -1,6 +1,6 @@
 .DS_Store
-/node_modules
-/scaffolds
-.npmignore
-db.json
-package.json
+/repos/node_modules
+/repos/scaffolds
+/repos/.npmignore
+/repos/db.json
+/repos/package.json
