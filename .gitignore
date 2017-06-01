@@ -1,5 +1,6 @@
 .DS_Store
 /repos/node_modules
+/repos/public
 /repos/scaffolds
 /repos/.npmignore
 /repos/db.json
