@@ -1,7 +1,7 @@
 ---
 title: AndroidAnnotions 源码解析
 date: 2016-01-18
-categories: Android
+categories: [Android, 源码分析]
 tags: [Annotation, AndroidAnnotions]
 ---
 

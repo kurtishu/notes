@@ -1,7 +1,7 @@
 ---
 title: Realm 让移动开发更简单
 date: 2016-02-14
-categories: Android
+categories: [Android,  Database]
 tags: [Database, ORM]
 ---
  
