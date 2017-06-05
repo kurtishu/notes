@@ -142,8 +142,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/kurtishu
-  Twitter: https://twitter.com/kurtishu
-  Weibo: http://weibo.com/kurtishu
+  JianShu: http://www.jianshu.com/u/2a75d9856a6d
 
 
 # Social Links Icons
@@ -156,8 +155,7 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  JianShu: book
 
 
 # Sidebar Avatar
