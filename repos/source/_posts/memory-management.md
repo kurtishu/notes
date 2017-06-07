@@ -99,6 +99,13 @@ shell@n7100:/ $ cat  /proc/5274/oom_adj
 ``` 
 通常修改指定包名应用的oom_adj，避免被系统回收，以到达进程保活的目的。
 
+用以下命令可以查看程序的内存使用情况：
+```java
+//使用程序的包名或者进程id
+adb shell dumpsys meminfo $package_name or $pid    
+```
+	  
+
 未完待续...
 
 ### 参考
