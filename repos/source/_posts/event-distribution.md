@@ -201,6 +201,7 @@ private void checkForLongClick(int delayOffset, float x, float y) {
 
 
 ### 参考
+> [可能是讲解Android事件分发最好的文章](https://mp.weixin.qq.com/s/rgQrJv8ghXO2HFt5Y5ISqA)
 > [图解 Android 事件分发机制](http://www.jianshu.com/p/e99b5e8bd67b)
 > [一文读懂Android View事件分发机制](https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&mid=2247484615&idx=1&sn=d34d4035e6ecf03abbead56cd9eafa4c&chksm=96cda58aa1ba2c9c5663ff1f3e6a2ef72a64db81c813c74b7ebbc389fbcbb0ce3b3eaefe85a5&scene=21#wechat_redirect)
 > [一文解决Android View滑动冲突](https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&mid=2247484662&idx=1&sn=7b8a8831b37975936a9ea95c7a54d52a&chksm=96cda5bba1ba2cad32081316ad0771aab42fa64782f7b2c726acc2bb5809fb04f4ef7088ab29&mpshare=1&scene=23&srcid=0527RJ2k4z4mAQyPQqhbtYIG#rd)

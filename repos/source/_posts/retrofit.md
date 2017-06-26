@@ -288,4 +288,5 @@ private void parseMethodAnnotation(Annotation annotation) {
 ### 总结
 Retrofit就是在组装请求，把请求交给Adapter(OkHttp)去处理请求，然后拿回结果用Converter将原始数据转化成期望的对象。 通过Retrofit的封装，使得App网络请求层代码简洁，方便维护。
 
-
+### More
+[Android：手把手带你深入剖析 Retrofit 2.0 源码](http://www.jianshu.com/p/0c055ad46b6c)
