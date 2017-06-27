@@ -104,7 +104,18 @@ shell@n7100:/ $ cat  /proc/5274/oom_adj
 //使用程序的包名或者进程id
 adb shell dumpsys meminfo $package_name or $pid    
 ```
-	  
+	
+### 内存优化
+* 数据结构的优化
+   1、使用StringBuilder代替字符串拼接
+   2、使用ArrayMap、SparseArray代替HashMap
+   3、避免内存抖动(突然申请过多内存)
+* 对象复用
+   1、复用系统资源
+   2、ListView、GridView ConvertView的复用，以及的item缓存
+   3、避免在onDraw创建对象
+
+* Bitmap 压缩，解码格式，部分加载
 
 未完待续...
 
