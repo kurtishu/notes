@@ -1,13 +1,13 @@
----
-title: Android ·´±àÒë
+ï»¿---
+title: Android åç¼–è¯‘
 date: 2017-06-19 15:52:52
-categories: [Android, ÆäËû]
-tags: [·´±àÒë, ´ò°ü]
+categories: [Android, å…¶ä»–]
+tags: [åç¼–è¯‘, æ‰“åŒ…]
 ---
 
-
+Comming Soon!
 
 
 
 ### Reference
-[Android APK ·´±àÒëÊµ¼ù](http://www.jianshu.com/p/9e0d1c3e342e)
+[Android APK åç¼–è¯‘å®è·µ](http://www.jianshu.com/p/9e0d1c3e342e)
