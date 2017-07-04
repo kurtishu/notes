@@ -1,5 +1,5 @@
 ﻿---
-title: Android 打包
+title: Android 打包那些事
 date: 2017-06-27 17:15:07
 categories: [Android, 其他]
 tags: [打包, package]
@@ -188,8 +188,8 @@ defaultConfig {
 3. 通过Java Compiler编译R.java、Java接口文件、Java源文件，生成.class文件
 4. 通过dex命令，将.class文件和第三方库中的.class文件处理生成classes.dex
 5. 通过apkbuilder工具，将aapt生成的resources.arsc和res文件、assets文件和classes.dex一起打包生成apk
-6. 通过zipalign工具，对apk进行对齐处理。
-7. 通过apksigner/Jarsigner工具，对上面的apk进行debug或release签名
+6. 通过apksigner/Jarsigner工具，对上面的apk进行debug或release签名
+7. 通过zipalign工具，对apk进行对齐处理。
 
 ### 参考
 https://developer.android.google.cn/studio/build/index.html
