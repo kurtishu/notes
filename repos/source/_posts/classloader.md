@@ -4,7 +4,9 @@ date: 2017-07-19 10:49:15
 categories: [Java, ClassLoader]
 tags: [ClassLoader, 双亲委托, 自定义加载器]
 ---
+
 ![Image](http://www.cssxt.com/uploadfile/2016/0902/20160902024039799.png)
+
 ### 什么是ClassLoader
 ClassLoader 就是所谓的类加载器，我们在编写的java程序的时候，首先会将源文件(.java)通过Java编译器编译成Java字节代码（.class）。类加载器将.class文件中二进制数据读入到内存中，将其放在运行时数据区的方法区中，然后在堆区创建一个java.lang.Class对象，用来封装类在方法区内的数据结构。
 ClassLoader是用来动态加载class文件到内存中的，一旦要加载的class文件不存在就会报ClassNotFoundException。 
@@ -340,6 +342,21 @@ public static void main(String[] args) {
 MyClassLoader
 Hello Class loaded!
 This is the Hello Class
+```
+
+最后要说下defineClass，Java SDK 用native方法实现了加载二进制文件到内存，开发者可以不用关系具体过程。
+```java
+    protected final Class<?> defineClass(String name, byte[] b, int off, int len,
+                                         ProtectionDomain protectionDomain)
+        throws ClassFormatError
+    {
+        protectionDomain = preDefineClass(name, protectionDomain);
+        String source = defineClassSourceLocation(protectionDomain);
+        // defineClass1 是native方法
+		Class<?> c = defineClass1(name, b, off, len, protectionDomain, source);
+        postDefineClass(c, protectionDomain);
+        return c;
+    }
 ```
 
 ### 总结
