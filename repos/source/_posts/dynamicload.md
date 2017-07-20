@@ -4,12 +4,12 @@ date: 2017-07-20 08:51:35
 categories: [Android, ClassLoader]
 tags: [DynamicLoad, ClassLoader, 双亲委托, 自定义加载器]
 ---
-试想下我们如何让Android应用，像Eclipse一样，可以动态加载插件？ 如何让Android应用执行服务器上的代码（也就是最近比较火的插件化或者热修复、热更新等）？ 如何让Android应用家里，而在执行的时解密，以防止破解？ 以上这些可以使用类加载器来灵活的加载执行的类。
+试想下我们如何让Android应用，像Eclipse一样，可以动态加载插件？ 如何让Android应用执行服务器上的代码（也就是最近比较火的插件化或者热修复、热更新等）？ 如何让Android应用加密，而在执行时解密，以防止被破解？ 以上这些问题可以通过类加载器来灵活的加载要执行的类的方式实现。
 
 ### 类加载机制
 Android Dalvik/ART虚拟机和Java虚拟机一样，在运行程序时需要将对应的类加载到内存中。具体内容可以参考[《浅谈 Java ClassLoader》](http://kurtishu.github.io/2017/07/19/classloader/)。
 
-Android虚拟机和标准的Java虚拟机有所不同，使用标准的Java虚拟机，我们可以自定义ClassLoader的类加载器。然后通过defineClass方法从一个二进制中加载Class。然而，这在Android里是行不通。原因是Android中的ClassLoader的defineClass方法具体的调用VMClassLoader的defineClass方法，该方法直接抛出“UnsupportedOperationException”。
+Android虚拟机和标准的Java虚拟机有所不同，使用标准的Java虚拟机，我们可以自定义ClassLoader的类加载器。然后通过defineClass方法从一个二进制中加载Class。然而，这在Android里是行不通。原因是Android中的ClassLoader的defineClass方法被弃用了，该方法直接抛出“UnsupportedOperationException”。
 
 ```java
  @Deprecated
@@ -41,13 +41,13 @@ Activity classLoader's parent = java.lang.BootClassLoader@294fa575
 
 其实，在Android系统启动的时候会创建一个Boot类型的ClassLoader实例，用于加载一些系统Framework层级需要的类，我们的Android应用里也需要用到一些系统的类，所以APP启动的时候也会把这个Boot类型的ClassLoader传进来。
 
-这里提到了PathClassLoader，其实aAndroid为我们从ClassLoader派生出了两个类：DexClassLoader和PathClassLoader。使用这两个类可以实现Android的动态加载功能
+这里提到了PathClassLoader，其实Android为我们从ClassLoader派生出了两个类：DexClassLoader和PathClassLoader。使用这两个类可以实现Android的动态加载功能
 - [ ] DexClassLoader：这个可以加载"jar/apk/dex"，也可以从SD卡中加载，它也是用的最多的。
 - [ ] PathClassLoader： 只能加载已经安装到Android系统中（/data/data...）的APK文件。
 
 ### Android 类加载源码分析
 
-我们发现Android SDK 源码里面是不包含dalvik包的，不过可以在线查看源码：[Dalvik 包源码地址](http://androidxref.com/5.1.0_r1/xref/libcore/dalvik/src/main/java/dalvik/system/)。
+我们发现Android SDK 源码里面是不包含dalvik包的源代码，不过可以在线查看其源码：[源码地址](http://androidxref.com/5.1.0_r1/xref/libcore/dalvik/src/main/java/dalvik/system/)。
 
 DexClassLoader 和 PathClassLoader都是继承BaseDexClassLoader
 ```java
@@ -246,7 +246,7 @@ private static Class defineClass(String name, ClassLoader loader, int cookie, Li
 ### 演练动态加载
 具体参考[《Android动态加载入门 简单加载模式》](https://segmentfault.com/a/1190000004062952)
 
-[《Android插件化开发之DexClassLoader动态加载dex、jar小Demo》(http://blog.csdn.net/u011068702/article/details/53263442)]
+[《Android插件化开发之DexClassLoader动态加载dex、jar小Demo》](http://blog.csdn.net/u011068702/article/details/53263442)
 
 ### 总结
 Android Dalvik/ART虚拟机和Java虚拟机一样，在运行程序时需要将对应的类的二进制文件加载到内存中。但是Android虚拟机和Java标准虚拟机在加载方式上存在不同。Java 虚拟机通过ClassLoader类的defineClass方法加载，Android这是通过DeFile的defineClass的native 方法加载的。并且Android提供了两个类：DexClassLoader和PathClassLoader，用来实现Android的动态加载。
