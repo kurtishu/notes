@@ -91,6 +91,9 @@ https://developer.android.google.cn/studio/build/shrink-code.html#shrink-resourc
 #### 使用Native层
 一些关键的算法，或者数据可以使用C/C++来实现，毕竟反编译so文件要比java文件的难度大太多了。
 
+### 资源混淆
+可以类似于使用微信Android资源混淆打包工具(https://github.com/shwenzhang/AndResGuard) 等资源混淆要工具，一方面可以混淆资源，另一方面还可以压缩Apk的大小。
+
 ### 总结
 安卓应用主要基于Java开发，可以借助一些反编译工具可以轻松的破解，获取源代码或者接口信息等，所以为了避免代码泄漏，我们需要对我们的源码进行混淆、加固处理。加大反编译的难度。
 作为一个有节操的程序员我们出于学习的目的反编译别人项目是可以的，切不可以商业目的窃取别人源代码，甚至加入广告，病毒等二次打包发布。
